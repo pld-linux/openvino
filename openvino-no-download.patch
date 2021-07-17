@@ -1,0 +1,13 @@
+--- openvino-2020.3.2/cmake/download/download_and_extract.cmake.orig	2021-04-16 20:43:32.000000000 +0200
++++ openvino-2020.3.2/cmake/download/download_and_extract.cmake	2021-06-19 21:09:13.405517164 +0200
+@@ -117,7 +117,9 @@
+ 
+     if (ENABLE_UNSAFE_LOCATIONS)
+       ExtractWithVersion(${URL} ${archive_path} ${unpacked_path} ${folder} result)
+-      if(NOT ${result})
++      if(${result})
++        set (downloadStatus "OK")
++      else()
+         DownloadAndExtractInternal(${URL} ${archive_path} ${unpacked_path} ${folder} ${fattal} result)
+         if (${result})
+           set (downloadStatus "OK")
