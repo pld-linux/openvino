@@ -86,7 +86,7 @@ Dokumentacja API biblioteki OpenVINO.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %{__tar} xf %{SOURCE1} --strip-components=1 -C inference-engine/thirdparty/ade
 %{__tar} xf %{SOURCE2} --strip-components=1 -C ngraph
